@@ -7,7 +7,7 @@
       </StackLayout>
   </ScrollView>
   <ScrollView orientation="vertical" tkMainContent class="page">
-      <GridLayout class="m-5" rows="auto auto">
+      <GridLayout class="m-5" rows="auto auto auto auto">
       <StackLayout row="0">
         <StackLayout class="p-10 border">
           <Label class="h2" text="Our History"></Label>
@@ -18,7 +18,7 @@
         </StackLayout>
       </StackLayout>
 
-  <StackLayout row="1">
+  <StackLayout row="1 auto auto">
     <Label class="h3 m-5 p-10" text="Corporate Leadership"></Label>
     <ListView [items]="leaders" class="list-group" *ngIf="leaders">
         <ng-template let-leader="item">

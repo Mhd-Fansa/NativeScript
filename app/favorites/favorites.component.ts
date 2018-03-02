@@ -49,7 +49,7 @@ export class FavoritesComponent extends DrawerPage implements OnInit {
 
           this.favoriteservice.deleteFavorite(id)
               .subscribe(favorites => {
-                const toast = new Toasty("Deleted Dish "+ id, "short", "bottom");
+                const toast = new Toasty( id +"Deleted Dish ", "short", "bottom");
                 toast.show();
                 this.favorites = new ObservableArray(favorites);
               },
