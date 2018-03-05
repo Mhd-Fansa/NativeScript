@@ -18,9 +18,11 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { CommentComponent } from './comment/comment.component';
 import { DrawerComponent } from "./shared/drawer/drawer.component";
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { DishService } from './services/dish.service';
+import { CouchbaseService } from './services/couchbase.service';
 import { FavoriteService } from './services/favorite.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
@@ -54,18 +56,21 @@ import { baseURL } from './shared/baseurl';
         ContactComponent,
         AboutComponent,
         FavoritesComponent,
+        CommentComponent,
         DishdetailComponent,
         ReservationComponent,
         ReservationModalComponent,
         DrawerComponent
     ],
-    entryComponents: [ReservationModalComponent],
+    entryComponents: [ReservationModalComponent,
+                      CommentComponent],
     providers: [
       {provide: 'BaseURL', useValue: baseURL},
       DishService,
       LeaderService,
       PromotionService,
       FavoriteService,
+      CouchbaseService,
       ProcessHTTPMsgService
     ],
     schemas: [
