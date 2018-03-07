@@ -17,9 +17,9 @@ export class CommentComponent implements OnInit {
       private formBuilder: FormBuilder) {
 
         this.commentModal = this.formBuilder.group({
-            author : ['Your Name', Validators.required],
+            author : ['', Validators.required],
             rating: 1,
-            comments: ['Your Comment', Validators.required]
+            comments: ['', Validators.required]
         });
       }
 
