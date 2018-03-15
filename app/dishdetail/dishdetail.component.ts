@@ -17,6 +17,8 @@ import { ModalDialogService, ModalDialogOptions, ModalDialogParams } from "nativ
 import { CommentComponent } from '../comment/comment.component';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { RouterExtensions } from 'nativescript-angular/router';
+import * as SocialShare from "nativescript-social-share";
+import { ImageSource, fromUrl } from "image-source";
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -86,7 +88,7 @@ export class DishdetailComponent implements OnInit {
            title: "Actions",
            message: "Choose your Actions",
            cancelButtonText: "Cancel",
-           actions: ["Add to Favorites", "Add Comment"]
+           actions: ["Add to Favorites", "Add Comment", "Social Sharing"]
        };
 
        action(options).then((result) => {
@@ -100,6 +102,11 @@ export class DishdetailComponent implements OnInit {
                  console.log('Add Comment');
                  this.createModalView();
              }
+             break;
+             case 'Social Sharing': {
+               this.socialShare();
+             }
+             break;
          }
        });
        // << action-dialog-code
@@ -209,6 +216,18 @@ export class DishdetailComponent implements OnInit {
     .catch((e) => {
         console.log(e.message);
     });
+  }
+
+  socialShare() {
+    let image: ImageSource;
+
+    fromUrl(this.BaseURL + this.dish.image)
+     .then((img: ImageSource) => {
+       image = img;
+        SocialShare.shareImage(image, "How would you like to share this image?")
+      })
+     .catch(()=> { console.log('Error loading image'); });
+
   }
 
 }

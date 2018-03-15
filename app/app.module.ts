@@ -13,6 +13,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { UserAuthComponent } from "./userauth/userauth.component";
 import { ReservationModalComponent } from "./reservationmodal/reservationmodal.component";
 import { ReservationComponent } from './reservation/reservation.component';
 import { PromotionService } from './services/promotion.service';
@@ -58,6 +59,7 @@ import { baseURL } from './shared/baseurl';
         FavoritesComponent,
         CommentComponent,
         DishdetailComponent,
+        UserAuthComponent,
         ReservationComponent,
         ReservationModalComponent,
         DrawerComponent
